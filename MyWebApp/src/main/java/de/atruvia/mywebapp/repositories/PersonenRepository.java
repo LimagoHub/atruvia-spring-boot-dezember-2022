@@ -5,7 +5,7 @@ import de.atruvia.mywebapp.repositories.entities.TinyPerson;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
-public interface PersonenRepository extends CrudRepository<PersonEntity, String> {
+public interface PersonenRepository extends CrudRepository<PersonEntity, String>, PersonenCustomRepository {
 
     Iterable<PersonEntity> findByVorname(String vorname);
 
