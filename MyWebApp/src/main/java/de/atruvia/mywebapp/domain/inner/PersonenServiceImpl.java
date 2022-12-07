@@ -1,6 +1,7 @@
 package de.atruvia.mywebapp.domain.inner;
 
 
+import de.atruvia.mywebapp.aspects.Dozent;
 import de.atruvia.mywebapp.domain.BlacklistService;
 import de.atruvia.mywebapp.domain.PersonenService;
 import de.atruvia.mywebapp.domain.PersonenServiceException;
@@ -18,6 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Dozent
 @Transactional(propagation = Propagation.REQUIRED, rollbackFor = PersonenServiceException.class, isolation = Isolation.READ_COMMITTED)
 public class PersonenServiceImpl implements PersonenService {
 

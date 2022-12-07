@@ -12,12 +12,14 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class LoggerAspect {
 
-    @Before("execution(public * de.atruvia.mywebapp.presentation.PersonenCommandController.*(..))")
+
+
+    @Before("PointCuts.serviceMethods()")
     public void logAdvice(JoinPoint joinPoint) {
         log.warn(joinPoint.getSignature().getName() + " wurde gerufen");
     }
 
-    @AfterThrowing(value = ("execution(public * de.atruvia.mywebapp.presentation.PersonenCommandController.*(..))"), throwing = "ex")
+    @AfterThrowing(value = ("PointCuts.personenCommandControllerMethods()"), throwing = "ex")
     public void afterThrowingAdvice(JoinPoint joinPoint, Throwable ex) {
         log.error("{}",ex);
     }
