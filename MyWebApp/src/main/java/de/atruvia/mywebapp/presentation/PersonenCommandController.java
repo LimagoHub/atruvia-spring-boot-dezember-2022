@@ -23,7 +23,7 @@ public class PersonenCommandController {
     private final PersonenService service;
     private final PersonDtoMapper mapper;
 
-    @DeleteMapping()
+    @DeleteMapping(path="/{id}")
     public ResponseEntity<Void> delete(@PathVariable String id) throws PersonenServiceException {
         if(service.loeschen(id))
             return ResponseEntity.ok().build();
